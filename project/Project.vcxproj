@@ -56,6 +56,7 @@
     <ClCompile Include="..\src\Controllers\States\Shutdown.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Models\HeightSector.cpp" />
     <ClCompile Include="..\src\Utils\Clock.cpp" />
     <ClCompile Include="..\src\Utils\Exception.cpp" />
     <ClCompile Include="..\src\Utils\Exceptions\FatalError.cpp" />
@@ -77,6 +78,7 @@
     <ClCompile Include="..\src\Utils\TimeLoop.cpp" />
     <ClCompile Include="..\src\Utils\Timer.cpp" />
     <ClCompile Include="..\src\Utils\Window.cpp" />
+    <ClCompile Include="..\src\Views\ViewHeightSector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Controllers\Camera.h" />
@@ -86,6 +88,7 @@
     <ClInclude Include="..\src\Controllers\States\Initialization.h" />
     <ClInclude Include="..\src\Controllers\States\Shutdown.h" />
     <ClInclude Include="..\src\Game.h" />
+    <ClInclude Include="..\src\Models\HeightSector.h" />
     <ClInclude Include="..\src\Utils\Clock.h" />
     <ClInclude Include="..\src\Utils\Exception.h" />
     <ClInclude Include="..\src\Utils\Exceptions\FatalError.h" />
@@ -110,6 +113,11 @@
     <ClInclude Include="..\src\Utils\Window.h" />
     <ClInclude Include="..\src\Views\View.h" />
     <ClInclude Include="..\src\Views\ExtendedView.h" />
+    <ClInclude Include="..\src\Views\ViewHeightSector.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\bin\assets\shaders\heightSector.fs" />
+    <None Include="..\bin\assets\shaders\heightSector.vs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

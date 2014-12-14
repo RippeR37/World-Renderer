@@ -3,6 +3,10 @@
 
 #include "../State.h"
 
+#include "../../Models/HeightSector.h"
+
+#include "../../Views/ViewHeightSector.h"
+
 #include "../../Utils/GL+/Pipeline.h"
 
 #include <GL/glew.h>
@@ -23,13 +27,15 @@ namespace Controller {
             static void handleKeyboard(GLFWwindow* window, int key, int scancode, int action, int mods);
 
         private:
+            void loadHeightMaps();
+
             bool isEnd() const;
 
         private:
-            
+            Model::HeightSector _heightSector;
 
         private:
-            
+            View::ViewHeightSector _viewHeightSector;
     };
 
 }

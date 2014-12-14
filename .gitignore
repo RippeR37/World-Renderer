@@ -1,4 +1,5 @@
-personal/*
 bin/Project.*
+bin/assets/heightmaps/*
 libs/*
+personal/*
 project/build/*

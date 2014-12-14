@@ -27,19 +27,20 @@ namespace Controller {
             return;
         
         Game::get().getWindow().getContext().clearBuffers(GL::Context::BufferMask::Color);
+
+        _viewHeightSector.render(_heightSector);
     }
 
     void State::Gameplay::onLoad() {
         changeTo(this);
-
-        glfwSetInputMode(Game::get().getWindow().getHandle(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
         glfwSetKeyCallback(Game::get().getWindow().getHandle(), handleKeyboard);
-
         Game::get().getWindow().getContext().setClearColor(glm::vec4(0.1f, 0.1f, 0.1f, 1.0f));
+
+        loadHeightMaps();
+        _viewHeightSector.init(_heightSector);
     }
 
     void State::Gameplay::onUnload() {
-        glfwSetInputMode(Game::get().getWindow().getHandle(), GLFW_CURSOR, GLFW_CURSOR_NORMAL);
         glfwSetKeyCallback(Game::get().getWindow().getHandle(), nullptr);
     }
 
@@ -57,6 +58,10 @@ namespace Controller {
             }
 
         }
+    }
+
+    void State::Gameplay::loadHeightMaps() {
+        _heightSector.loadData("assets/heightmaps/N50E016.hgt");
     }
 
     bool State::Gameplay::isEnd() const {

@@ -57,6 +57,9 @@
     <Filter Include="Header Files\Views">
       <UniqueIdentifier>{6cc77a47-066c-4513-990a-74aa3374a160}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\Shaders\HeightSector">
+      <UniqueIdentifier>{f8e28fe1-d318-4a8a-b1be-d352973b6e11}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Game.cpp">
@@ -145,6 +148,12 @@
     </ClCompile>
     <ClCompile Include="..\src\Controllers\States.cpp">
       <Filter>Source Files\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Models\HeightSector.cpp">
+      <Filter>Source Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Views\ViewHeightSector.cpp">
+      <Filter>Source Files\Views</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -241,5 +250,19 @@
     <ClInclude Include="..\src\Controllers\States.h">
       <Filter>Header Files\Controllers</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Models\HeightSector.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Views\ViewHeightSector.h">
+      <Filter>Header Files\Views</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\bin\assets\shaders\heightSector.fs">
+      <Filter>Assets\Shaders\HeightSector</Filter>
+    </None>
+    <None Include="..\bin\assets\shaders\heightSector.vs">
+      <Filter>Assets\Shaders\HeightSector</Filter>
+    </None>
   </ItemGroup>
 </Project>
