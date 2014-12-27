@@ -2,10 +2,12 @@
 #define CONTROLLER_STATE_GAMEPLAY_H_INCLUDED
 
 #include "../State.h"
+#include "../MapController.h"
 
-#include "../../Models/HeightSector.h"
+#include "../../Models/Map.h"
 
-#include "../../Views/ViewHeightSector.h"
+#include "../../Views/ViewSector.h"
+#include "../../Views/ViewWireframe2D.h"
 
 #include "../../Utils/GL+/Pipeline.h"
 
@@ -25,17 +27,24 @@ namespace Controller {
             void onUnload();
 
             static void handleKeyboard(GLFWwindow* window, int key, int scancode, int action, int mods);
+            static void handleMouseWheel(GLFWwindow* window, double x, double y);
+            static void handleMouseMovement(GLFWwindow* window, double x, double y);
+
+        public:
+            const MapController& getMapController() const;
 
         private:
-            void loadHeightMaps();
-
             bool isEnd() const;
 
         private:
-            Model::HeightSector _heightSector;
+            MapController _mapController;
 
         private:
-            View::ViewHeightSector _viewHeightSector;
+            Model::Map _map;
+
+        private:
+            View::ViewSector _viewSector;
+            View::ViewWireframe2D _viewWireframe2D;
     };
 
 }

@@ -1,5 +1,5 @@
-#ifndef UTILS_FILE_H_INCLUDED
-#define UTILS_FILE_H_INCLUDED
+#ifndef UTILS_IMAGE_H_INCLUDED
+#define UTILS_IMAGE_H_INCLUDED
 
 #include "Exception.h"
 

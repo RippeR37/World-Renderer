@@ -20,4 +20,22 @@ namespace Util {
         return result;
     }
 
+    std::string File::getPath(std::string filePath) {
+        return filePath.substr(0, filePath.find_last_of("/\\"));
+    }
+
+    std::string File::getFilename(std::string filePath) {
+        return filePath.substr(filePath.find_last_of("/\\") + 1);
+    }
+
+    std::string File::getFilenameExtensionless(std::string filePath) {
+        std::string fileName = File::getFilename(filePath);
+
+        return fileName.substr(0, fileName.find_last_of("."));
+    }
+
+    std::string File::getExtension(std::string filePath) {
+        return filePath.substr(filePath.find_last_of(".") + 1);
+    }
+
 }
