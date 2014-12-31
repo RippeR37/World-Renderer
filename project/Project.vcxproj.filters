@@ -57,14 +57,17 @@
     <Filter Include="Header Files\Views">
       <UniqueIdentifier>{6cc77a47-066c-4513-990a-74aa3374a160}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Assets\Shaders\Sector">
-      <UniqueIdentifier>{234567c7-c98b-4f26-b50d-99e7b8a593bc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Assets\Shaders\Wireframe2D">
       <UniqueIdentifier>{d824018c-d36b-4023-bf5c-96acd651b453}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Assets\Shaders\Sector3D">
+    <Filter Include="Assets\Shaders\Wireframe3D">
       <UniqueIdentifier>{9bc6e810-416e-4e26-82fe-1cd42a56fa2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Shaders\Sector3D">
+      <UniqueIdentifier>{5a936b6f-9c46-4d90-990a-02578c993cf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\Shaders\Sector2D">
+      <UniqueIdentifier>{234567c7-c98b-4f26-b50d-99e7b8a593bc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -164,14 +167,23 @@
     <ClCompile Include="..\src\Models\Sector.cpp">
       <Filter>Source Files\Models</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Views\ViewSector.cpp">
+    <ClCompile Include="..\src\Views\ViewWireframe2D.cpp">
       <Filter>Source Files\Views</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Views\ViewWireframe2D.cpp">
+    <ClCompile Include="..\src\Controllers\LockedCamera.cpp">
+      <Filter>Source Files\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Views\ViewWireframe3D.cpp">
       <Filter>Source Files\Views</Filter>
     </ClCompile>
     <ClCompile Include="..\src\Views\ViewSector3D.cpp">
       <Filter>Source Files\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Views\ViewSector2D.cpp">
+      <Filter>Source Files\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Models\LoDTree.cpp">
+      <Filter>Source Files\Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -277,34 +289,49 @@
     <ClInclude Include="..\src\Models\Sector.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Views\ViewSector.h">
+    <ClInclude Include="..\src\Views\ViewWireframe2D.h">
       <Filter>Header Files\Views</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Views\ViewWireframe2D.h">
+    <ClInclude Include="..\src\Controllers\LockedCamera.h">
+      <Filter>Header Files\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Views\ViewWireframe3D.h">
       <Filter>Header Files\Views</Filter>
     </ClInclude>
     <ClInclude Include="..\src\Views\ViewSector3D.h">
       <Filter>Header Files\Views</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\Views\ViewSector2D.h">
+      <Filter>Header Files\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Models\LoDTree.h">
+      <Filter>Header Files\Models</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\bin\assets\shaders\sector.fs">
-      <Filter>Assets\Shaders\Sector</Filter>
-    </None>
-    <None Include="..\bin\assets\shaders\sector.vs">
-      <Filter>Assets\Shaders\Sector</Filter>
-    </None>
     <None Include="..\bin\assets\shaders\wireframe2D.fs">
       <Filter>Assets\Shaders\Wireframe2D</Filter>
     </None>
     <None Include="..\bin\assets\shaders\wireframe2D.vs">
       <Filter>Assets\Shaders\Wireframe2D</Filter>
     </None>
-    <None Include="..\bin\assets\shaders\sector3d.fs">
+    <None Include="..\bin\assets\shaders\wireframe3D.fs">
+      <Filter>Assets\Shaders\Wireframe3D</Filter>
+    </None>
+    <None Include="..\bin\assets\shaders\wireframe3D.vs">
+      <Filter>Assets\Shaders\Wireframe3D</Filter>
+    </None>
+    <None Include="..\bin\assets\shaders\sector3D.fs">
       <Filter>Assets\Shaders\Sector3D</Filter>
     </None>
-    <None Include="..\bin\assets\shaders\sector3d.vs">
+    <None Include="..\bin\assets\shaders\sector3D.vs">
       <Filter>Assets\Shaders\Sector3D</Filter>
+    </None>
+    <None Include="..\bin\assets\shaders\sector2D.fs">
+      <Filter>Assets\Shaders\Sector2D</Filter>
+    </None>
+    <None Include="..\bin\assets\shaders\sector2D.vs">
+      <Filter>Assets\Shaders\Sector2D</Filter>
     </None>
   </ItemGroup>
 </Project>

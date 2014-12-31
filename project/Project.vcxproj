@@ -49,6 +49,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Controllers\Camera.cpp" />
+    <ClCompile Include="..\src\Controllers\LockedCamera.cpp" />
     <ClCompile Include="..\src\Controllers\MapController.cpp" />
     <ClCompile Include="..\src\Controllers\State.cpp" />
     <ClCompile Include="..\src\Controllers\States.cpp" />
@@ -57,6 +58,7 @@
     <ClCompile Include="..\src\Controllers\States\Shutdown.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\main.cpp" />
+    <ClCompile Include="..\src\Models\LoDTree.cpp" />
     <ClCompile Include="..\src\Models\Map.cpp" />
     <ClCompile Include="..\src\Models\Sector.cpp" />
     <ClCompile Include="..\src\Utils\Clock.cpp" />
@@ -80,12 +82,14 @@
     <ClCompile Include="..\src\Utils\TimeLoop.cpp" />
     <ClCompile Include="..\src\Utils\Timer.cpp" />
     <ClCompile Include="..\src\Utils\Window.cpp" />
-    <ClCompile Include="..\src\Views\ViewSector.cpp" />
+    <ClCompile Include="..\src\Views\ViewSector2D.cpp" />
     <ClCompile Include="..\src\Views\ViewSector3D.cpp" />
+    <ClCompile Include="..\src\Views\ViewWireframe3D.cpp" />
     <ClCompile Include="..\src\Views\ViewWireframe2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Controllers\Camera.h" />
+    <ClInclude Include="..\src\Controllers\LockedCamera.h" />
     <ClInclude Include="..\src\Controllers\MapController.h" />
     <ClInclude Include="..\src\Controllers\State.h" />
     <ClInclude Include="..\src\Controllers\States.h" />
@@ -94,6 +98,7 @@
     <ClInclude Include="..\src\Controllers\States\Shutdown.h" />
     <ClInclude Include="..\src\Game.h" />
     <ClInclude Include="..\src\Models\Map.h" />
+    <ClInclude Include="..\src\Models\LoDTree.h" />
     <ClInclude Include="..\src\Models\Sector.h" />
     <ClInclude Include="..\src\Utils\Clock.h" />
     <ClInclude Include="..\src\Utils\Exception.h" />
@@ -119,15 +124,18 @@
     <ClInclude Include="..\src\Utils\Window.h" />
     <ClInclude Include="..\src\Views\View.h" />
     <ClInclude Include="..\src\Views\ExtendedView.h" />
-    <ClInclude Include="..\src\Views\ViewSector.h" />
+    <ClInclude Include="..\src\Views\ViewSector2D.h" />
     <ClInclude Include="..\src\Views\ViewSector3D.h" />
+    <ClInclude Include="..\src\Views\ViewWireframe3D.h" />
     <ClInclude Include="..\src\Views\ViewWireframe2D.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\bin\assets\shaders\sector.fs" />
-    <None Include="..\bin\assets\shaders\sector.vs" />
-    <None Include="..\bin\assets\shaders\sector3d.fs" />
-    <None Include="..\bin\assets\shaders\sector3d.vs" />
+    <None Include="..\bin\assets\shaders\sector2D.fs" />
+    <None Include="..\bin\assets\shaders\sector2D.vs" />
+    <None Include="..\bin\assets\shaders\sector3D.fs" />
+    <None Include="..\bin\assets\shaders\sector3D.vs" />
+    <None Include="..\bin\assets\shaders\wireframe3D.fs" />
+    <None Include="..\bin\assets\shaders\wireframe3D.vs" />
     <None Include="..\bin\assets\shaders\wireframe2D.fs" />
     <None Include="..\bin\assets\shaders\wireframe2D.vs" />
   </ItemGroup>

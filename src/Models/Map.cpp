@@ -12,15 +12,17 @@ namespace Model {
 
     void Map::init() {
         glm::ivec2 start = glm::ivec2(14, 49);
-        glm::ivec2 stop  = glm::ivec2(23, 54);
+        glm::ivec2 stop  = glm::ivec2(23, 49);//54);
 
         for(int y = start.y; y <= stop.y; ++y) {
             for(int x = start.x; x <= stop.x; ++x) {
 
-                addSector(x, y);
+                //addSector(x, y);
 
             }
         }
+
+        addSector(17, 49);
     }
 
     void Map::addSector(int x, int y) {

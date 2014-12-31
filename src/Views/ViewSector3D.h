@@ -1,5 +1,5 @@
-#ifndef VIEW_SECTOR3D_H_INCLUDED
-#define VIEW_SECTOR3D_H_INCLUDED
+#ifndef VIEW_SECTOR_3D_H_INCLUDED
+#define VIEW_SECTOR_3D_H_INCLUDED
 
 #include "ExtendedView.h"
 #include "../Models/Sector.h"

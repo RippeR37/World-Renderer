@@ -2,12 +2,15 @@
 #define CONTROLLER_STATE_GAMEPLAY_H_INCLUDED
 
 #include "../State.h"
+#include "../LockedCamera.h"
 #include "../MapController.h"
 
 #include "../../Models/Map.h"
 
-#include "../../Views/ViewSector.h"
+#include "../../Views/ViewSector2D.h"
+#include "../../Views/ViewSector3D.h"
 #include "../../Views/ViewWireframe2D.h"
+#include "../../Views/ViewWireframe3D.h"
 
 #include "../../Utils/GL+/Pipeline.h"
 
@@ -31,20 +34,34 @@ namespace Controller {
             static void handleMouseMovement(GLFWwindow* window, double x, double y);
 
         public:
+            LockedCamera& getCamera();
             const MapController& getMapController() const;
+            const Model::Map& getMap() const;
+
+            GL::Pipeline& getPipeline();
 
         private:
             bool isEnd() const;
+            bool isMode2D() const;
+
+            void setMode2D(bool flag);
 
         private:
+            bool _isMode2D;
+
+            LockedCamera _camera;
             MapController _mapController;
+
+            GL::Pipeline _pipeline;
 
         private:
             Model::Map _map;
 
         private:
-            View::ViewSector _viewSector;
+            View::ViewSector2D _viewSector2D;
+            View::ViewSector3D _viewSector3D;
             View::ViewWireframe2D _viewWireframe2D;
+            View::ViewWireframe3D _viewWireframe3D;
     };
 
 }

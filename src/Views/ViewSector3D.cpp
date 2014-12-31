@@ -4,6 +4,8 @@
 
 #include <glm/glm.hpp>
 
+#include <iostream>
+
 namespace View {
 
     ViewSector3D::ViewSector3D() {
@@ -18,19 +20,27 @@ namespace View {
     }
 
     void ViewSector3D::render(const Model::Sector& sector) {
-        sector.getTexture().bind();
+        static Controller::State::Gameplay& gameplay = *Controller::States::get().gameplay;
+        
+        
+        gameplay.getPipeline().getStack().pushMatrix();
 
-        _program.use();
-        _program["mapCoords"].setVec(glm::vec2(sector.getLongtitude(), sector.getLatitude()));
-        _program["dataTexture"].setSampler(0);
+            sector.getTexture().bind();
 
-            _vao.bind();
-            _vao.drawArrays();
-            _vao.unbind();
+            _program.use();
+            _program["MVP"].setMatrix(gameplay.getPipeline().getMVP());
+            _program["mapCoords"].setVec(glm::vec2(sector.getLongtitude(), sector.getLatitude()));
+            _program["dataTexture"].setSampler(0);
 
-        _program.unbind();
+                _vao.bind();
+                _vao.drawArrays();
+                _vao.unbind();
 
-        sector.getTexture().unbind();
+            _program.unbind();
+
+            sector.getTexture().unbind();
+
+        gameplay.getPipeline().getStack().popMatrix();
     }
 
     void ViewSector3D::setVertexData(const Model::Sector& sector) {
@@ -38,27 +48,23 @@ namespace View {
         std::vector<glm::vec2> vertices;
 
         {
-            float x1, x2;
-            float y1, y2;
+            float width  = 1201.0f;
+            float height = 1201.0f; 
+            float fX, fY;
 
-            float width  = static_cast<float>(sector.getHeightMap()[0].size());
-            float height = static_cast<float>(sector.getHeightMap().size());
+            for(int y = 0; y < 1201.0f; ++y) {
+                fY = static_cast<float>(y);
 
-            for(int y = 0; y < height - 1; ++y) {
-                for(int x = 0; x < width - 1; ++x) {
+                for(int x = 0; x < 1201.0f; ++x) {
+                    fX = static_cast<float>(x);
 
-                    x1 = static_cast<float>(x)   / width;
-                    x2 = static_cast<float>(x+1) / width;
-                    y1 = static_cast<float>(y)   / height;
-                    y2 = static_cast<float>(y+1) / height;
-
-                    vertices.push_back(glm::vec2(x1, y1));
-                    vertices.push_back(glm::vec2(x1, y2));
-                    vertices.push_back(glm::vec2(x2, y1));
+                    vertices.push_back(glm::vec2(fX / width, fY / height));
+                    vertices.push_back(glm::vec2((fX + 1.0f) / width, fY / height));
+                    vertices.push_back(glm::vec2(fX / width, (fY + 1.0f) / height));
                     
-                    vertices.push_back(glm::vec2(x2, y1));
-                    vertices.push_back(glm::vec2(x1, y2));
-                    vertices.push_back(glm::vec2(x2, y2));
+                    vertices.push_back(glm::vec2(fX / width, (fY + 1.0f) / height));
+                    vertices.push_back(glm::vec2((fX + 1.0f) / width, fY / height));
+                    vertices.push_back(glm::vec2((fX + 1.0f) / width, (fY + 1.0f) / height));
                 }
             }
         }
@@ -67,7 +73,7 @@ namespace View {
         vertexData.data = (GLvoid*)&vertices[0];
         vertexData.size = vertices.size() * sizeof(vertices[0]);
         vertexData.pointers.push_back(GL::VertexAttrib(0, 2, GL_FLOAT, 0, 0));
-        
+
         // VBO
         _vbo.bind();
         _vbo.setData(vertexData);
