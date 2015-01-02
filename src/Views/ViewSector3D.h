@@ -3,12 +3,25 @@
 
 #include "ExtendedView.h"
 #include "../Models/Sector.h"
+#include "../Models/QTree.h"
 
+#include <glm/vec2.hpp>
+#include <glm/vec3.hpp>
 #include <glm/vec4.hpp>
 
 namespace View {
 
     class ViewSector3D : public ExtendedView<Model::Sector> {
+        private:
+            struct NodeData {
+                glm::uvec2 size;
+                glm::uvec2 position;
+
+                unsigned int drawCount;
+                unsigned int drawOffset;
+            };
+
+
         public:
             ViewSector3D();
             ~ViewSector3D();
@@ -18,6 +31,10 @@ namespace View {
         private:
             void setVertexData(const Model::Sector& sector);
 
+            glm::vec3 getVertexOnSphere(const glm::vec2& angle, const glm::vec2& offset);
+
+            GL::VertexBuffer _ibo;
+            Model::QTree<NodeData> _tree;
     };
 
 }

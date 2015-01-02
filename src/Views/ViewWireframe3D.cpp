@@ -55,7 +55,6 @@ namespace View {
         GL::VertexBuffer::Data vertexData;
         std::vector<glm::vec4> vertices;
 
-        
         {
             const Model::Map& map = Controller::States::get().gameplay->getMap();
             int advance = 1;

@@ -9,7 +9,7 @@ uniform vec2 mapCoords;
 uniform sampler2D dataTexture;
 
 const float EARTH_RADIUS = 6371.0f; // in meters, mean
-const float HEIGHT_FACTOR = 2.0f;
+const float HEIGHT_FACTOR = 3.0f;
 
 vec4 getSphereCoords(vec2 sectorOffset, float height) {
     vec2 angles = mapCoords + sectorOffset;

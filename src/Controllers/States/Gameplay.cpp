@@ -120,6 +120,14 @@ namespace Controller {
                     glfwSetCursorPos(window, 400.0, 300.0);
                     break;
 
+                case GLFW_KEY_ENTER:
+                    std::cerr << "CamPos: " << thisState._camera.getPos3D().x << ", ";
+                                  std::cerr << thisState._camera.getPos3D().y << ", ";
+                                  std::cerr << thisState._camera.getPos3D().z << " | ";
+
+                    std::cerr << "CamAngle: " << thisState._camera.getAngleX() << ", " << thisState._camera.getAngleY() << std::endl;
+                    break;
+
                 default:
                     break;
             }

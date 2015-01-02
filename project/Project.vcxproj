@@ -58,7 +58,7 @@
     <ClCompile Include="..\src\Controllers\States\Shutdown.cpp" />
     <ClCompile Include="..\src\Game.cpp" />
     <ClCompile Include="..\src\main.cpp" />
-    <ClCompile Include="..\src\Models\LoDTree.cpp" />
+    <ClCompile Include="..\src\Models\Qtree.hpp" />
     <ClCompile Include="..\src\Models\Map.cpp" />
     <ClCompile Include="..\src\Models\Sector.cpp" />
     <ClCompile Include="..\src\Utils\Clock.cpp" />
@@ -98,7 +98,7 @@
     <ClInclude Include="..\src\Controllers\States\Shutdown.h" />
     <ClInclude Include="..\src\Game.h" />
     <ClInclude Include="..\src\Models\Map.h" />
-    <ClInclude Include="..\src\Models\LoDTree.h" />
+    <ClInclude Include="..\src\Models\QTree.h" />
     <ClInclude Include="..\src\Models\Sector.h" />
     <ClInclude Include="..\src\Utils\Clock.h" />
     <ClInclude Include="..\src\Utils\Exception.h" />

@@ -182,8 +182,8 @@
     <ClCompile Include="..\src\Views\ViewSector2D.cpp">
       <Filter>Source Files\Views</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Models\LoDTree.cpp">
-      <Filter>Source Files\Models</Filter>
+    <ClCompile Include="..\src\Models\Qtree.hpp">
+      <Filter>Header Files\Models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -304,7 +304,7 @@
     <ClInclude Include="..\src\Views\ViewSector2D.h">
       <Filter>Header Files\Views</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Models\LoDTree.h">
+    <ClInclude Include="..\src\Models\QTree.h">
       <Filter>Header Files\Models</Filter>
     </ClInclude>
   </ItemGroup>
