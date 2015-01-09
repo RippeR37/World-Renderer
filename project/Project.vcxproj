@@ -49,7 +49,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Controllers\Camera.cpp" />
-    <ClCompile Include="..\src\Controllers\LockedCamera.cpp" />
+    <ClCompile Include="..\src\Controllers\FlyCamera.cpp" />
     <ClCompile Include="..\src\Controllers\MapController.cpp" />
     <ClCompile Include="..\src\Controllers\State.cpp" />
     <ClCompile Include="..\src\Controllers\States.cpp" />
@@ -66,6 +66,10 @@
     <ClCompile Include="..\src\Utils\Exceptions\FatalError.cpp" />
     <ClCompile Include="..\src\Utils\File.cpp" />
     <ClCompile Include="..\src\Utils\GL+\Context.cpp" />
+    <ClCompile Include="..\src\Utils\GL+\GUI\Component.cpp" />
+    <ClCompile Include="..\src\Utils\GL+\GUI\Container.cpp" />
+    <ClCompile Include="..\src\Utils\GL+\GUI\Event.cpp" />
+    <ClCompile Include="..\src\Utils\GL+\GUI\GWindow.cpp" />
     <ClCompile Include="..\src\Utils\GL+\MatrixStack.cpp" />
     <ClCompile Include="..\src\Utils\GL+\Pipeline.cpp" />
     <ClCompile Include="..\src\Utils\GL+\Program.cpp" />
@@ -78,6 +82,7 @@
     <ClCompile Include="..\src\Utils\Image.cpp" />
     <ClCompile Include="..\src\Utils\Line.cpp" />
     <ClCompile Include="..\src\Utils\Point.cpp" />
+    <ClCompile Include="..\src\Utils\Rectangle.cpp" />
     <ClCompile Include="..\src\Utils\TimeEvent.cpp" />
     <ClCompile Include="..\src\Utils\TimeLoop.cpp" />
     <ClCompile Include="..\src\Utils\Timer.cpp" />
@@ -89,7 +94,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\Controllers\Camera.h" />
-    <ClInclude Include="..\src\Controllers\LockedCamera.h" />
+    <ClInclude Include="..\src\Controllers\FlyCamera.h" />
     <ClInclude Include="..\src\Controllers\MapController.h" />
     <ClInclude Include="..\src\Controllers\State.h" />
     <ClInclude Include="..\src\Controllers\States.h" />
@@ -105,6 +110,10 @@
     <ClInclude Include="..\src\Utils\Exceptions\FatalError.h" />
     <ClInclude Include="..\src\Utils\File.h" />
     <ClInclude Include="..\src\Utils\GL+\Context.h" />
+    <ClInclude Include="..\src\Utils\GL+\GUI\Component.h" />
+    <ClInclude Include="..\src\Utils\GL+\GUI\Container.h" />
+    <ClInclude Include="..\src\Utils\GL+\GUI\Event.h" />
+    <ClInclude Include="..\src\Utils\GL+\GUI\GWindow.h" />
     <ClInclude Include="..\src\Utils\GL+\MatrixStack.h" />
     <ClInclude Include="..\src\Utils\GL+\Pipeline.h" />
     <ClInclude Include="..\src\Utils\GL+\Program.h" />
@@ -118,6 +127,7 @@
     <ClInclude Include="..\src\Utils\Image.h" />
     <ClInclude Include="..\src\Utils\Line.h" />
     <ClInclude Include="..\src\Utils\Point.h" />
+    <ClInclude Include="..\src\Utils\Rectangle.h" />
     <ClInclude Include="..\src\Utils\TimeEvent.h" />
     <ClInclude Include="..\src\Utils\TimeLoop.h" />
     <ClInclude Include="..\src\Utils\Timer.h" />

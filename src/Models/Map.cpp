@@ -16,9 +16,7 @@ namespace Model {
 
         for(int y = start.y; y <= stop.y; ++y) {
             for(int x = start.x; x <= stop.x; ++x) {
-
                 addSector(x, y);
-
             }
         }
     }

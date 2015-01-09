@@ -69,6 +69,12 @@
     <Filter Include="Assets\Shaders\Sector2D">
       <UniqueIdentifier>{234567c7-c98b-4f26-b50d-99e7b8a593bc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Utils\GL+\GUI">
+      <UniqueIdentifier>{860cd3cd-8818-4b39-8643-452ce3160b1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utils\GL+\GUI">
+      <UniqueIdentifier>{ce02d3a1-f9df-4c28-9024-1546a8c7f29a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\Game.cpp">
@@ -170,9 +176,6 @@
     <ClCompile Include="..\src\Views\ViewWireframe2D.cpp">
       <Filter>Source Files\Views</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\Controllers\LockedCamera.cpp">
-      <Filter>Source Files\Controllers</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\Views\ViewWireframe3D.cpp">
       <Filter>Source Files\Views</Filter>
     </ClCompile>
@@ -184,6 +187,24 @@
     </ClCompile>
     <ClCompile Include="..\src\Models\Qtree.hpp">
       <Filter>Header Files\Models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Controllers\FlyCamera.cpp">
+      <Filter>Source Files\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\Rectangle.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\GL+\GUI\Component.cpp">
+      <Filter>Source Files\Utils\GL+\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\GL+\GUI\Container.cpp">
+      <Filter>Source Files\Utils\GL+\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\GL+\GUI\Event.cpp">
+      <Filter>Source Files\Utils\GL+\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\GL+\GUI\GWindow.cpp">
+      <Filter>Source Files\Utils\GL+\GUI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -292,9 +313,6 @@
     <ClInclude Include="..\src\Views\ViewWireframe2D.h">
       <Filter>Header Files\Views</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\Controllers\LockedCamera.h">
-      <Filter>Header Files\Controllers</Filter>
-    </ClInclude>
     <ClInclude Include="..\src\Views\ViewWireframe3D.h">
       <Filter>Header Files\Views</Filter>
     </ClInclude>
@@ -306,6 +324,24 @@
     </ClInclude>
     <ClInclude Include="..\src\Models\QTree.h">
       <Filter>Header Files\Models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Controllers\FlyCamera.h">
+      <Filter>Header Files\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\Rectangle.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\GL+\GUI\Component.h">
+      <Filter>Header Files\Utils\GL+\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\GL+\GUI\Container.h">
+      <Filter>Header Files\Utils\GL+\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\GL+\GUI\Event.h">
+      <Filter>Header Files\Utils\GL+\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\GL+\GUI\GWindow.h">
+      <Filter>Header Files\Utils\GL+\GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

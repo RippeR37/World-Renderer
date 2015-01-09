@@ -2,7 +2,7 @@
 #define CONTROLLER_STATE_GAMEPLAY_H_INCLUDED
 
 #include "../State.h"
-#include "../LockedCamera.h"
+#include "../FlyCamera.h"
 #include "../MapController.h"
 
 #include "../../Models/Map.h"
@@ -34,7 +34,7 @@ namespace Controller {
             static void handleMouseMovement(GLFWwindow* window, double x, double y);
 
         public:
-            LockedCamera& getCamera();
+            FlyCamera& getCamera();
             const MapController& getMapController() const;
             const Model::Map& getMap() const;
 
@@ -49,7 +49,7 @@ namespace Controller {
         private:
             bool _isMode2D;
 
-            LockedCamera _camera;
+            FlyCamera _camera;
             MapController _mapController;
 
             GL::Pipeline _pipeline;

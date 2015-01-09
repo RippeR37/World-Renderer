@@ -15,16 +15,16 @@ namespace Util {
     class Window {
         public:
             Window();
-            ~Window();
+            virtual ~Window();
             
             bool create() throw(Util::Exception::FatalError);
-            void update();
+            virtual void update();
             void destroy();
             
             void setSize(unsigned int width, unsigned int height);
-            void setSize(glm::uvec2 size);
-            void setTitle(std::string title);
-            void appendTitle(std::string text);
+            void setSize(const glm::uvec2& size);
+            void setTitle(const std::string& title);
+            void appendTitle(const std::string& text);
             
             const unsigned int getWidth() const;
             const unsigned int getHeight() const;
@@ -36,14 +36,14 @@ namespace Util {
             GLFWwindow* getHandle();
             GL::Context& getContext();
 
-        private:
+        protected:
             void setHints();
             void setContext();
 
             static void initializeGLFW() throw(Util::Exception::FatalError);
             static void initializeGLEW() throw(Util::Exception::FatalError);
             
-            glm::uvec2 _size;
+            glm::uvec2 _windowSize;
             double _frameTime;
             std::string _title;
             GLFWwindow* _handle;

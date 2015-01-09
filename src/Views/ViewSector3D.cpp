@@ -25,7 +25,7 @@ namespace View {
 
     void ViewSector3D::render(const Model::Sector& sector) {
         static Controller::State::Gameplay& gameplay = *Controller::States::get().gameplay;
-        static Controller::LockedCamera& camera = gameplay.getCamera();
+        static Controller::FlyCamera& camera = gameplay.getCamera();
         static glm::vec3 cameraPosition;
         static glm::vec2 sectorPosition;
         static glm::vec2 nodeOffset;

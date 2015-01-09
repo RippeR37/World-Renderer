@@ -41,7 +41,7 @@ namespace Controller {
             _viewWireframe2D.render();
         
         } else {
-            
+
             _pipeline.getStack().pushMatrix(_camera.getMatrix());
                 _pipeline.getStack().rotate(glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
@@ -149,7 +149,7 @@ namespace Controller {
                 thisState._mapController.zoomOut();
 
         } else {
-
+        
             thisState.getCamera().updateMouseWheel(x, y);
 
         }
@@ -201,7 +201,7 @@ namespace Controller {
     }
 
     
-    LockedCamera& State::Gameplay::getCamera() {
+    FlyCamera& State::Gameplay::getCamera() {
         return _camera;
     }
 

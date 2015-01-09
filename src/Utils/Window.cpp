@@ -6,7 +6,7 @@ namespace Util {
         _handle = nullptr;
 
         // Default options
-        _size  = glm::uvec2(640, 480);
+        _windowSize = glm::uvec2(640, 480);
         _title = std::string("Title");
     }
 
@@ -54,21 +54,21 @@ namespace Util {
         setSize(glm::uvec2(width, height));
     }
 
-    void Window::setSize(glm::uvec2 size) {
-        _size = size;
+    void Window::setSize(const glm::uvec2& size) {
+        _windowSize = size;
 
         if(isCreated())
             glfwSetWindowSize(_handle, getWidth(), getHeight());
     }
 
-    void Window::setTitle(std::string title) {
+    void Window::setTitle(const std::string& title) {
         _title = title;
 
         if(isCreated())
             glfwSetWindowTitle(_handle, _title.c_str());
     }
     
-    void Window::appendTitle(std::string text) {
+    void Window::appendTitle(const std::string& text) {
         std::string appendedTitle = getTitle() + text;
 
         if(isCreated())
@@ -76,15 +76,15 @@ namespace Util {
     }
 
     const unsigned int Window::getWidth() const {
-        return _size.x;
+        return _windowSize.x;
     }
 
     const unsigned int Window::getHeight() const {
-        return _size.y;
+        return _windowSize.y;
     }
 
     const glm::uvec2& Window::getSize() const {
-        return _size;
+        return _windowSize;
     }
     const std::string& Window::getTitle() const {
         return _title;
