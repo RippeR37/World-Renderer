@@ -1,4 +1,5 @@
 #include "Map.h"
+#include "../Game.h"
 
 namespace Model {
 
@@ -13,10 +14,16 @@ namespace Model {
     void Map::init() {
         glm::ivec2 start = glm::ivec2(14, 49);
         glm::ivec2 stop  = glm::ivec2(23, 54);
+        unsigned int sectorsLoaded = 0;
+        unsigned int sectorsAll = (stop.x - start.x + 1) * (stop.y - start.y + 1);
 
         for(int y = start.y; y <= stop.y; ++y) {
             for(int x = start.x; x <= stop.x; ++x) {
+                Game::get().getWindow().update();
+                Game::get().getWindow().appendTitle(std::string(" | Loading: ") + std::to_string(100 * sectorsLoaded / sectorsAll) + "%");
+
                 addSector(x, y);
+                sectorsLoaded++;
             }
         }
     }
