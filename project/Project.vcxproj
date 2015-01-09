@@ -35,7 +35,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\libs\glew-1.11.0\include;..\libs\glfw-3.0.4\include;..\libs\glm-0.9.5.4\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\libs\glew-1.11.0\include;..\libs\glfw-3.0.4\include;..\libs\glm-0.9.5.4\include;E:\Programowanie\Biblioteki\Utility library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4290;4996;4018;%(DisableSpecificWarnings)</DisableSpecificWarnings>
     </ClCompile>
@@ -61,32 +61,6 @@
     <ClCompile Include="..\src\Models\Qtree.hpp" />
     <ClCompile Include="..\src\Models\Map.cpp" />
     <ClCompile Include="..\src\Models\Sector.cpp" />
-    <ClCompile Include="..\src\Utils\Clock.cpp" />
-    <ClCompile Include="..\src\Utils\Exception.cpp" />
-    <ClCompile Include="..\src\Utils\Exceptions\FatalError.cpp" />
-    <ClCompile Include="..\src\Utils\File.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\Context.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\GUI\Component.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\GUI\Container.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\GUI\Event.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\GUI\GWindow.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\MatrixStack.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\Pipeline.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\Program.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\Shader.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\Texture.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\Uniform.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\VertexArray.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\VertexAttrib.cpp" />
-    <ClCompile Include="..\src\Utils\GL+\VertexBuffer.cpp" />
-    <ClCompile Include="..\src\Utils\Image.cpp" />
-    <ClCompile Include="..\src\Utils\Line.cpp" />
-    <ClCompile Include="..\src\Utils\Point.cpp" />
-    <ClCompile Include="..\src\Utils\Rectangle.cpp" />
-    <ClCompile Include="..\src\Utils\TimeEvent.cpp" />
-    <ClCompile Include="..\src\Utils\TimeLoop.cpp" />
-    <ClCompile Include="..\src\Utils\Timer.cpp" />
-    <ClCompile Include="..\src\Utils\Window.cpp" />
     <ClCompile Include="..\src\Views\ViewSector2D.cpp" />
     <ClCompile Include="..\src\Views\ViewSector3D.cpp" />
     <ClCompile Include="..\src\Views\ViewWireframe3D.cpp" />
@@ -105,33 +79,6 @@
     <ClInclude Include="..\src\Models\Map.h" />
     <ClInclude Include="..\src\Models\QTree.h" />
     <ClInclude Include="..\src\Models\Sector.h" />
-    <ClInclude Include="..\src\Utils\Clock.h" />
-    <ClInclude Include="..\src\Utils\Exception.h" />
-    <ClInclude Include="..\src\Utils\Exceptions\FatalError.h" />
-    <ClInclude Include="..\src\Utils\File.h" />
-    <ClInclude Include="..\src\Utils\GL+\Context.h" />
-    <ClInclude Include="..\src\Utils\GL+\GUI\Component.h" />
-    <ClInclude Include="..\src\Utils\GL+\GUI\Container.h" />
-    <ClInclude Include="..\src\Utils\GL+\GUI\Event.h" />
-    <ClInclude Include="..\src\Utils\GL+\GUI\GWindow.h" />
-    <ClInclude Include="..\src\Utils\GL+\MatrixStack.h" />
-    <ClInclude Include="..\src\Utils\GL+\Pipeline.h" />
-    <ClInclude Include="..\src\Utils\GL+\Program.h" />
-    <ClInclude Include="..\src\Utils\GL+\Shader.h" />
-    <ClInclude Include="..\src\Utils\GL+\Texture.h" />
-    <ClInclude Include="..\src\Utils\GL+\Uniform.h" />
-    <ClInclude Include="..\src\Utils\GL+\VertexArray.h" />
-    <ClInclude Include="..\src\Utils\GL+\VertexAttrib.h" />
-    <ClInclude Include="..\src\Utils\GL+\VertexBuffer.h" />
-    <ClInclude Include="..\src\Utils\GL+\VertexBuffer.hpp" />
-    <ClInclude Include="..\src\Utils\Image.h" />
-    <ClInclude Include="..\src\Utils\Line.h" />
-    <ClInclude Include="..\src\Utils\Point.h" />
-    <ClInclude Include="..\src\Utils\Rectangle.h" />
-    <ClInclude Include="..\src\Utils\TimeEvent.h" />
-    <ClInclude Include="..\src\Utils\TimeLoop.h" />
-    <ClInclude Include="..\src\Utils\Timer.h" />
-    <ClInclude Include="..\src\Utils\Window.h" />
     <ClInclude Include="..\src\Views\View.h" />
     <ClInclude Include="..\src\Views\ExtendedView.h" />
     <ClInclude Include="..\src\Views\ViewSector2D.h" />
@@ -148,6 +95,11 @@
     <None Include="..\bin\assets\shaders\wireframe3D.vs" />
     <None Include="..\bin\assets\shaders\wireframe2D.fs" />
     <None Include="..\bin\assets\shaders\wireframe2D.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Programowanie\Biblioteki\Utility library\project\Utility Library.vcxproj">
+      <Project>{a18ba2dc-a847-4094-9a2b-40935a118e4f}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

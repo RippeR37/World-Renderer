@@ -12,7 +12,7 @@
 #include "../../Views/ViewWireframe2D.h"
 #include "../../Views/ViewWireframe3D.h"
 
-#include "../../Utils/GL+/Pipeline.h"
+#include <Utils/GL+/Pipeline.h>
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>

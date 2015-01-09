@@ -1,7 +1,7 @@
 #ifndef MODEL_SECTOR_H_INCLUDED
 #define MODEL_SECTOR_H_INCLUDED
 
-#include "../Utils/GL+/Texture.h"
+#include <Utils/GL+/Texture.h>
 
 #include <string>
 #include <vector>

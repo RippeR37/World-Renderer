@@ -1,7 +1,7 @@
 #include "Sector.h"
 
-#include "../Utils/Exception.h"
-#include "../Utils/File.h"
+#include <Utils/Exception.h>
+#include <Utils/File.h>
 
 #include <iostream>
 #include <fstream>

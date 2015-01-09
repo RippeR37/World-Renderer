@@ -1,7 +1,8 @@
 #include "Gameplay.h"
 #include "../States.h"
 #include "../../Game.h"
-#include "../../Utils/TimeLoop.h"
+
+#include <Utils/TimeLoop.h>
 
 #include <GLFW/glfw3.h>
 
