@@ -19,8 +19,6 @@ namespace Controller {
         _position = glm::vec3(8200.0f, 8400.0f, -2150.0f);
 
         _mouseSpeed = 0.003f;
-        _fovAngle = 60.0f;
-
         _angleX = -1.33f; //3.14f;
         _angleY = -0.73f;
     }
@@ -76,21 +74,7 @@ namespace Controller {
     }
 
     void FlyCamera::updateMouseWheel(double x, double y) {
-        _fovAngle += static_cast<float>(y) * 2.0f;
-
-        if(_fovAngle < 15.0f)
-            _fovAngle = 15.0f;
-
-        else if(_fovAngle > 121.0f)
-            _fovAngle = 121.0f;
-
-        resetProjection();
-    }
-
-    void FlyCamera::resetProjection() {
-        _projectionMatrix = glm::perspective(glm::radians(_fovAngle), 4.0f/3.0f, 0.1f, 10000.0f);
-
-        Controller::States::get().gameplay->getPipeline().setProjection(_projectionMatrix);
+        
     }
     
     void FlyCamera::resetAngles() {

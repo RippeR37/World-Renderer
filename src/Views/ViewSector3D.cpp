@@ -32,7 +32,8 @@ namespace View {
 
         std::queue<Model::QTree<NodeData>*> queue;
         Model::QTree<NodeData>* thisNode;
-        float distToCamera;
+        float distanceToCamera;
+        float distanceFactor = 1.5f;
 
         cameraPosition = glm::rotate(camera.getPos3D(), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
         sectorPosition = glm::vec2(sector.getLongtitude(), sector.getLatitude());
@@ -56,12 +57,12 @@ namespace View {
 
                         nodeOffset = (glm::vec2(thisNode->data.position) + glm::vec2(thisNode->data.size) * (0.5f)) * (1.0f / 1201.0f);
                         
-                        distToCamera = glm::distance(
+                        distanceToCamera = glm::distance(
                             cameraPosition,
-                            getVertexOnSphere(sectorPosition, nodeOffset)
+                            getVertexOnSphere(sectorPosition, nodeOffset) * 1.0001f
                         );
                         
-                        if(distToCamera > thisNode->data.size.x * 2.0f || thisNode->child[0] == nullptr) {
+                        if(distanceToCamera > thisNode->data.size.x * distanceFactor || thisNode->child[0] == nullptr) {
                             ++countDraw;
                             glDrawElements(GL_TRIANGLES, thisNode->data.drawCount, GL_UNSIGNED_INT, (GLvoid*)thisNode->data.drawOffset);
 
@@ -128,6 +129,7 @@ namespace View {
                     y2 = (y1 + thisNode->data.size.y < _tree.data.size.y ) ? 
                           y1 + thisNode->data.size.y : _tree.data.size.y - 1;
 
+                    
                     indices.push_back(y1 * 1201 + x1);
                     indices.push_back(y1 * 1201 + x2);
                     indices.push_back(y2 * 1201 + x1);
@@ -144,7 +146,7 @@ namespace View {
                         unsigned int halfWidth  = thisNode->data.size.x / 2;
                         unsigned int halfHeight = thisNode->data.size.y / 2;
 
-                        thisNode->child[0] = new Model::QTree<NodeData>();      //     ID
+                        thisNode->child[0] = new Model::QTree<NodeData>();      //    ID's
                         thisNode->child[1] = new Model::QTree<NodeData>();      // 2        3
                         thisNode->child[2] = new Model::QTree<NodeData>();      //    this   
                         thisNode->child[3] = new Model::QTree<NodeData>();      // 0        1

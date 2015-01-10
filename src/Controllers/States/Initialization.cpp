@@ -38,8 +38,8 @@ namespace Controller {
         if(Game::get().getWindow().create() == false)
             throw Util::Exception::FatalError(std::string("Failed to create window."));
 
-        Game::get().getWindow().setCountingFPS(true);
-        Game::get().getWindow().setFPSRefreshRate(0.5);
+        Game::get().getWindow().setDisplayingFPS(true);
+        Game::get().getWindow().setFPSRefreshRate(0.25);
     }
 
     void State::Initialization::setRandomSeed() {

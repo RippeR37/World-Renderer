@@ -17,7 +17,6 @@ namespace Controller {
             void updateKeyboard(int key, int scancode, int action, int mods);
             void updateMouseWheel(double x, double y);
 
-            void resetProjection();
             void resetAngles();
 
             float getAngleX() const;
@@ -27,8 +26,6 @@ namespace Controller {
             const glm::mat4& getMatrix() const;
 
         private:
-
-            float _fovAngle;
             float _speed;
             float _angleX;
             float _angleY;
