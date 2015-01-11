@@ -4,6 +4,7 @@
 #include <iostream>
 
 Game::Game() {
+    setArguments(0, nullptr);
     setState(Controller::States::get().initialization);
 }
 
@@ -26,6 +27,22 @@ void Game::start() {
 
         setState(getState()->getNext());
     }
+}
+
+void Game::setArguments(int argumentCount, char* arguments[]) {
+    _arguments.resize(argumentCount);
+
+    for(int i = 0; i < argumentCount; ++i)
+        _arguments[i] = std::string(arguments[i]);
+}
+
+const std::string& Game::getArgument(int id) const {
+    if(id < _arguments.size())
+        return _arguments[id];
+}
+
+const std::vector<std::string>& Game::getArguments() const {
+    return _arguments;
 }
 
 Util::Window& Game::getWindow() {

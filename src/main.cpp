@@ -3,9 +3,10 @@
 
 #include <iostream>
 
-int main() {
+int main(int argc, char* argv[]) {
     
     try {
+        Game::get().setArguments(argc, argv);
         Game::get().start();
 
     } catch(const Util::Exception::FatalError& exception) {

@@ -14,6 +14,7 @@ namespace Model {
 
             void init();
             void addSector(int x, int y);
+            void addSector(const std::string& file);
 
             const std::vector<Sector>& getSectors() const;
 

@@ -2,8 +2,11 @@
 #define GAME_H_INCLUDED
 
 #include "Controllers\State.h"
-#include "Utils\Exception.h"
-#include "Utils\Window.h"
+
+#include <Utils\Exception.h>
+#include <Utils\Window.h>
+
+#include <vector>
 
 class Game {
     public: 
@@ -11,6 +14,10 @@ class Game {
 
         void start();
 
+        void setArguments(int argumentCount, char* arguments[]);
+
+        const std::string& getArgument(int id) const;
+        const std::vector<std::string>& getArguments() const;
         Util::Window& getWindow();
 
     private: 
@@ -22,6 +29,7 @@ class Game {
     
         Util::Window* _window;
         Controller::State* _state;
+        std::vector<std::string> _arguments;
 
     public:
         friend class Controller::State::Initialization;
