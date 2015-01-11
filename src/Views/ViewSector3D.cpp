@@ -17,6 +17,8 @@ namespace View {
             GL::Shader("assets/shaders/sector3D.vs", GL::Shader::Type::VertexShader),
             GL::Shader("assets/shaders/sector3D.fs", GL::Shader::Type::FragmentShader)
         );
+
+        setLoD(10);
     }
 
     ViewSector3D::~ViewSector3D() {
@@ -33,7 +35,6 @@ namespace View {
         std::queue<Model::QTree<NodeData>*> queue;
         Model::QTree<NodeData>* thisNode;
         float distanceToCamera;
-        float distanceFactor = 1.5f;
 
         cameraPosition = glm::rotate(camera.getPos3D(), glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
         sectorPosition = glm::vec2(sector.getLongtitude(), sector.getLatitude());
@@ -59,10 +60,12 @@ namespace View {
                         
                         distanceToCamera = glm::distance(
                             cameraPosition,
-                            getVertexOnSphere(sectorPosition, nodeOffset) * 1.0001f
+                            getVertexOnSphere(sectorPosition, nodeOffset) * 1.0001f //offset factor for little-heigher then earths surface
                         );
                         
-                        if(distanceToCamera > thisNode->data.size.x * distanceFactor || thisNode->child[0] == nullptr) {
+                        if(distanceToCamera > std::max(thisNode->data.size.x, thisNode->data.size.y) * getLoDFactor() || 
+                            thisNode->child[0] == nullptr) 
+                        {
                             ++countDraw;
                             glDrawElements(GL_TRIANGLES, thisNode->data.drawCount, GL_UNSIGNED_INT, (GLvoid*)thisNode->data.drawOffset);
 
@@ -198,6 +201,40 @@ namespace View {
         _vao.bind();
         _ibo.bind();
         _vao.unbind();
+    }
+
+    const bool ViewSector3D::isAutoLoD() const {
+        return _isAutoLoD;
+    }
+    
+    const unsigned int ViewSector3D::getLoD() const {
+        return std::min(_lod, 200u);
+    }
+
+    const float ViewSector3D::getLoDFactor() const {
+        return _lodFactor;
+    }
+
+    void ViewSector3D::setAutoLoD(bool flag) {
+        _isAutoLoD = flag;
+    }
+
+    void ViewSector3D::setLoD(unsigned int level) {
+        _lod = level;
+        setLoDFactor((level + 1) * 0.15f);
+    }
+
+    void ViewSector3D::increaseLoD() {
+        setLoD(getLoD() + 1);
+    }
+
+    void ViewSector3D::decreaseLoD() {
+        if(getLoD() > 0)
+            setLoD(getLoD() - std::max(getLoD() / 20, 1u));
+    }
+
+    void ViewSector3D::setLoDFactor(float factor) {
+        _lodFactor = factor;
     }
     
     glm::vec3 ViewSector3D::getVertexOnSphere(const glm::vec2& angle, const glm::vec2& offset) {

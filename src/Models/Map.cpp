@@ -23,8 +23,8 @@ namespace Model {
             if(arguments[i][0] == '-' && (i + 4) < arguments.size()) {
                 if(arguments[i][1] == 'r') {
 
-                    glm::vec2 from;
-                    glm::vec2 to;
+                    glm::ivec2 from;
+                    glm::ivec2 to;
 
                     from.x = std::stoi(arguments[i+1]);
                     from.y = std::stoi(arguments[i+2]);

@@ -53,6 +53,8 @@ namespace Controller {
 
             _pipeline.getStack().popMatrix();
         }
+
+        //Game::get().getWindow().appendTitle(std::string(" | LoD factor: ") + std::to_string(_viewSector3D.getLoDFactor()));
     }
 
     void State::Gameplay::onLoad() {
@@ -81,9 +83,39 @@ namespace Controller {
 
         _viewWireframe3D.init();
         _viewSector3D.init(_map.getSectors().front());
+
+        Game::get().getWindow().setCountingFPS(true);
+        Game::get().getWindow().setFPSRefreshRate(0.05);
+        Game::get().getWindow().setFPSCountCallback([this](int fps) {
+            std::string newTitle = std::string(" | FPS: ") + std::to_string(fps);
+
+            if(this->isMode2D() == false)
+                newTitle += 
+                    std::string(" | LoD: ") + std::to_string(this->_viewSector3D.getLoD()) +
+                    std::string(" (factor: ") + std::to_string(this->_viewSector3D.getLoDFactor()) + ")";
+
+            if(this->isMode2D() == false) {
+                if(this->_viewSector3D.isAutoLoD()) {
+                    if(fps < 100) {
+                        this->_viewSector3D.decreaseLoD();
+
+                        if(fps < 60)
+                            this->_viewSector3D.decreaseLoD();
+
+                    } else if(fps > 160) {
+                        this->_viewSector3D.increaseLoD();
+                    }
+                }
+            }
+
+            Game::get().getWindow().appendTitle(newTitle);
+        });
     }
 
     void State::Gameplay::onUnload() {
+        Game::get().getWindow().setCountingFPS(false);
+        Game::get().getWindow().setFPSCountCallback(nullptr);
+
         glfwSetKeyCallback(Game::get().getWindow().getHandle(), nullptr);
         glfwSetScrollCallback(Game::get().getWindow().getHandle(), nullptr);
         glfwSetCursorPosCallback(Game::get().getWindow().getHandle(), nullptr);
