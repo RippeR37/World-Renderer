@@ -3,6 +3,7 @@
 
 #include "Sector.h"
 
+#include <atomic>
 #include <vector>
 
 namespace Model {
@@ -10,7 +11,9 @@ namespace Model {
     class Map {
         public:
             Map();
-            ~Map();
+            Map(Map&& map);
+
+            Map& operator=(Map&& map);
 
             void init();
             void addSector(int x, int y);

@@ -14,9 +14,9 @@ namespace Model {
 
         public:
             Sector();
-            ~Sector();
-
             Sector(Sector&& sector);
+
+            Sector& operator=(Sector&& sector);
 
             void clear();
             void loadData(const std::string& filePath);

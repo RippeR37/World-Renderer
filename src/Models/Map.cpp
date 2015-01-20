@@ -10,8 +10,13 @@ namespace Model {
 
     }
 
-    Map::~Map() {
+    Map::Map(Map&& map) : _sectors(std::move(map._sectors)) {
+        
+    }
 
+    Map& Map::operator=(Map&& map) {
+        _sectors = std::move(map._sectors);
+        return *this;
     }
 
     void Map::init() {

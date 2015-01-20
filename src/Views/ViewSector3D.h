@@ -31,6 +31,9 @@ namespace View {
             const bool isAutoLoD() const;
             const unsigned int getLoD() const;
             const float getLoDFactor() const;
+            const unsigned int getTrianglesCount() const;
+
+            void resetTrianglesCount();
 
             void setAutoLoD(bool flag);
             void setLoD(unsigned int level);
@@ -46,6 +49,7 @@ namespace View {
 
             bool _isAutoLoD;
             unsigned int _lod;
+            unsigned int _trianglesCount;
             float _lodFactor;
             GL::VertexBuffer _ibo;
             Model::QTree<NodeData> _tree;

@@ -22,6 +22,7 @@ namespace Controller {
     class State::Gameplay : public State {
         public:
             Gameplay();
+            ~Gameplay();
 
             void update(const double frameTime);
             void render();
@@ -48,11 +49,11 @@ namespace Controller {
 
         private:
             bool _isMode2D;
-
-            FlyCamera _camera;
-            MapController _mapController;
-
             GL::Pipeline _pipeline;
+
+        private:
+            Controller::FlyCamera _camera;
+            Controller::MapController _mapController;
 
         private:
             Model::Map _map;

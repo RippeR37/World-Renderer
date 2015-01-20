@@ -14,6 +14,10 @@ namespace Controller {
         setMode2D(true);
     }
 
+    State::Gameplay::~Gameplay() {
+
+    }
+
     void State::Gameplay::update(double frameTime) {
         static const double timeStep = 0.001;
 
@@ -46,6 +50,8 @@ namespace Controller {
             _pipeline.getStack().pushMatrix(_camera.getMatrix());
                 _pipeline.getStack().rotate(glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 
+                _viewSector3D.resetTrianglesCount();
+
                 for(auto& sector : _map.getSectors())
                     _viewSector3D.render(sector);
 
@@ -53,8 +59,6 @@ namespace Controller {
 
             _pipeline.getStack().popMatrix();
         }
-
-        //Game::get().getWindow().appendTitle(std::string(" | LoD factor: ") + std::to_string(_viewSector3D.getLoDFactor()));
     }
 
     void State::Gameplay::onLoad() {
@@ -77,22 +81,22 @@ namespace Controller {
         _pipeline.setProjection(60.0f, 4.0f/3.0f, 0.1f, 10 * 1000.0f);
 
         _map.init();
-
         _viewWireframe2D.init();
-        _viewSector2D.init(_map.getSectors().front());
-
         _viewWireframe3D.init();
+        _viewSector2D.init(_map.getSectors().front());
         _viewSector3D.init(_map.getSectors().front());
 
         Game::get().getWindow().setCountingFPS(true);
         Game::get().getWindow().setFPSRefreshRate(0.05);
-        Game::get().getWindow().setFPSCountCallback([this](int fps) {
+        Game::get().getWindow().setFPSCountCallback([&, this](int fps) {
             std::string newTitle = std::string(" | FPS: ") + std::to_string(fps);
 
             if(this->isMode2D() == false)
                 newTitle += 
                     std::string(" | LoD: ") + std::to_string(this->_viewSector3D.getLoD()) +
-                    std::string(" (factor: ") + std::to_string(this->_viewSector3D.getLoDFactor()) + ")";
+                    std::string(" (factor: ") + std::to_string(this->_viewSector3D.getLoDFactor()) +
+                    std::string(" , auto: ") + std::string(this->_viewSector3D.isAutoLoD() ? "true" : "false") + ")" +
+                    std::string(" | Triangles: ") + std::to_string(this->_viewSector3D.getTrianglesCount());
 
             if(this->isMode2D() == false) {
                 if(this->_viewSector3D.isAutoLoD()) {
@@ -139,7 +143,7 @@ namespace Controller {
                 case GLFW_KEY_TAB:
                     if(thisState.isMode2D()) {
                         glEnable(GL_DEPTH_TEST);
-                        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+                        //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
                         glfwSetInputMode(Game::get().getWindow().getHandle(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
                         thisState.setMode2D(false);
 
@@ -153,15 +157,47 @@ namespace Controller {
                     glfwSetCursorPos(window, 400.0, 300.0);
                     break;
 
-                case GLFW_KEY_ENTER:
-                    /*
-                    std::cerr << "CamPos: " << thisState._camera.getPos3D().x << ", ";
-                                  std::cerr << thisState._camera.getPos3D().y << ", ";
-                                  std::cerr << thisState._camera.getPos3D().z << " | ";
-
-                    std::cerr << "CamAngle: " << thisState._camera.getAngleX() << ", " << thisState._camera.getAngleY() << std::endl;
-                    */
+                case GLFW_KEY_0:
+                    if(thisState.isMode2D() == false) { thisState._viewSector3D.setAutoLoD(true); }
                     break;
+                    
+                case GLFW_KEY_1:
+                    if(thisState.isMode2D() == false) { thisState._viewSector3D.setLoD(1); thisState._viewSector3D.setAutoLoD(false); }
+                    break;
+                    
+                case GLFW_KEY_2:
+                    if(thisState.isMode2D() == false) { thisState._viewSector3D.setLoD(2); thisState._viewSector3D.setAutoLoD(false); }
+                    break;
+                    
+                case GLFW_KEY_3:
+                    if(thisState.isMode2D() == false) { thisState._viewSector3D.setLoD(4); thisState._viewSector3D.setAutoLoD(false); }
+                    break;
+                    
+                case GLFW_KEY_4:
+                    if(thisState.isMode2D() == false) { thisState._viewSector3D.setLoD(6); thisState._viewSector3D.setAutoLoD(false); }
+                    break;
+                    
+                case GLFW_KEY_5:
+                    if(thisState.isMode2D() == false) { thisState._viewSector3D.setLoD(9); thisState._viewSector3D.setAutoLoD(false); }
+                    break;
+                    
+                case GLFW_KEY_6:
+                    if(thisState.isMode2D() == false) { thisState._viewSector3D.setLoD(12); thisState._viewSector3D.setAutoLoD(false); }
+                    break;
+                    
+                case GLFW_KEY_7:
+                    if(thisState.isMode2D() == false) { thisState._viewSector3D.setLoD(15); thisState._viewSector3D.setAutoLoD(false); }
+                    break;
+                    
+                case GLFW_KEY_8:
+                    if(thisState.isMode2D() == false) { thisState._viewSector3D.setLoD(18); thisState._viewSector3D.setAutoLoD(false); }
+                    break;
+                    
+                case GLFW_KEY_9:
+                    if(thisState.isMode2D() == false) { thisState._viewSector3D.setLoD(22); thisState._viewSector3D.setAutoLoD(false); }
+                    break;
+
+                
 
                 default:
                     break;

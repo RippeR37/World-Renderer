@@ -79,6 +79,8 @@ namespace View {
                     
                 _vao.unbind();
 
+                _trianglesCount += countDraw * 2;
+
             _program.unbind();
 
             sector.getTexture().unbind();
@@ -213,6 +215,14 @@ namespace View {
 
     const float ViewSector3D::getLoDFactor() const {
         return _lodFactor;
+    }
+
+    const unsigned int ViewSector3D::getTrianglesCount() const {
+        return _trianglesCount;
+    }
+
+    void ViewSector3D::resetTrianglesCount() {
+        _trianglesCount = 0u;
     }
 
     void ViewSector3D::setAutoLoD(bool flag) {

@@ -18,15 +18,22 @@ namespace Model {
 
         resize(_mapSize);
     }
-
-    Sector::~Sector() {
-
-    }
     
     Sector::Sector(Sector&& sector) : _heightMap(std::move(sector._heightMap)), _texture(std::move(sector._texture)) {
         std::swap(_latitude, sector._latitude);
         std::swap(_longitude, sector._longitude);
         std::swap(_mapSize, sector._mapSize);
+    }
+
+    Sector& Sector::operator=(Sector&& sector) {
+        _heightMap = std::move(sector._heightMap);
+        _texture = std::move(sector._texture);
+
+        std::swap(_latitude, sector._latitude);
+        std::swap(_longitude, sector._longitude);
+        std::swap(_mapSize, sector._mapSize);
+
+        return *this;
     }
     
     void Sector::clear() {
