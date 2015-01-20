@@ -3,3 +3,4 @@ bin/assets/heightmaps/*
 libs/*
 personal/*
 project/build/*
+*.sdf
