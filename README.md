@@ -37,14 +37,14 @@ Supported arguments:
 - range arguments (-r startX startY endX endY)
 
 Example:
-Project.exe N10E010 N15W040 -r 20 20 21 22
-
-will load files:
-N10E010.hgt
-N15W040.hgt
-N20E020.hgt
-N20E021.hgt
-N21E020.hgt
-N21E021.hgt
-N22E020.hgt
-N22E021.hgt
+Project.exe N10E010 N15W040 -r 20 20 21 22  
+  
+will load files:  
+* N10E010.hgt
+* N15W040.hgt
+* N20E020.hgt
+* N20E021.hgt
+* N 21E020.hgt
+* N21E021.hgt
+* N22E020.hgt
+* N22E021.hgt
