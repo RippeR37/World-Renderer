@@ -36,7 +36,7 @@ Supported arguments:
 - single-file arguments (fileNames without extension)
 - range arguments (-r startX startY endX endY)
 
-Example:
+Example:  
 Project.exe N10E010 N15W040 -r 20 20 21 22  
   
 will load files:  
